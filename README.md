@@ -20,7 +20,7 @@ An AI-powered nutrition tracker built on Claude. Log meals by typing or sending 
 | Setup | Clone repo, run `claude .` | Paste prompt into Project Instructions |
 | Memory | Auto-saved to files | Upload profile to Project Knowledge |
 | Local file storage | Yes | No |
-| Notion auto-save | Yes (with MCP) | Desktop app only |
+| Notion auto-save | Yes (with MCP) | Yes (via Connections) |
 | Photo analysis | Yes | Yes |
 | Best for | Developers, power users | Everyone else |
 
@@ -111,9 +111,14 @@ Claude will read your profile from Knowledge at the start of every chat - no nee
 
 **Notion (recommended for Projects)**
 
-If you use the Claude **desktop app**, you can connect Notion via MCP (same setup as Method 1 above). Claude will save entries automatically.
+Claude Projects supports Notion natively via **Connections** - no MCP or API keys needed.
 
-If you use the Claude **web app**, Notion auto-save is not available. Instead, say "give me today's Notion entry" and Claude will output a formatted block you can paste into Notion manually.
+1. Open your project settings
+2. Go to **Connections**
+3. Click **Add connection** and select **Notion**
+4. Authorize access to your workspace
+
+Once connected, Claude can read and write to your Notion workspace directly. During onboarding, it will search for existing databases and create any that are missing.
 
 **Local files**
 
