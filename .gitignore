@@ -1,0 +1,10 @@
+# Personal data - never commit
+.diet/
+*.jsonl
+
+# Claude Code local files
+.claude/settings.local.json
+
+# OS
+.DS_Store
+Thumbs.db
