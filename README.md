@@ -1,4 +1,4 @@
-# Calorie & Macro Tracker
+# DietMate
 
 An AI-powered nutrition tracker built on Claude. Log meals by typing or sending photos, get instant calorie and macro breakdowns, and save everything to Notion or local files - all through natural conversation.
 
@@ -39,8 +39,8 @@ Full automation - Claude reads and writes files, saves to Notion automatically, 
 ### Setup
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/diet-tracker.git
-cd diet-tracker
+git clone https://github.com/YOUR_USERNAME/dietmate.git
+cd dietmate
 claude .
 ```
 
