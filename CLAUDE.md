@@ -35,7 +35,11 @@ Ask in the chosen language:
 - Target weight? (skip if goal is maintain)
 - Age?
 - Sex? (needed for the calorie formula)
-- Training frequency? (none / 1-2x per week / 2-3x per week / 4+ per week)
+- Activity level?
+  1. Sedentary - desk job, mostly sitting, very little walking
+  2. Lightly active - some walking during the day, light housework, or 1-2 workouts/week
+  3. Moderately active - active daily routine (lots of walking/standing) or 3-4 workouts/week
+  4. Very active - physical job or 5+ intense workouts/week
 - Any dietary restrictions? (vegetarian / vegan / none / other - specify)
 - Any fixed daily items with calories? (e.g. morning coffee with sugar, protein shake - or none)
 
@@ -45,7 +49,7 @@ After receiving answers, calculate and show for confirmation:
 - **TDEE** via Mifflin-St Jeor (use kg and cm):
   - Men: (10 x kg) + (6.25 x cm) - (5 x age) + 5
   - Women: same formula - 161
-  - Activity multiplier: none=1.2 / 1-2x=1.375 / 2-3x=1.55 / 4+=1.725
+  - Activity multiplier: sedentary=1.2 / lightly active=1.375 / moderately active=1.55 / very active=1.725
 - **Daily calorie limit** based on goal:
   - Lose weight: TDEE - 500
   - Maintain: TDEE
@@ -101,7 +105,7 @@ height_cm: X
 goal_weight_kg: X
 age: X
 sex: male/female
-training: none/1-2x/2-3x/4+
+training: sedentary/light/moderate/very_active
 daily_kcal: X
 protein_g: X
 fat_g: X
