@@ -41,7 +41,7 @@ Ask in the chosen language:
   3. Moderately active - active daily routine (lots of walking/standing) or 3-4 workouts/week
   4. Very active - physical job or 5+ intense workouts/week
 - Any dietary restrictions? (vegetarian / vegan / none / other - specify)
-- Any fixed daily items with calories? (e.g. morning coffee with sugar, protein shake - or none)
+- Any fixed daily items? (e.g. morning coffee with sugar, protein shake - name them with portions, or none. You will estimate the calories and macros for each yourself.)
 
 Convert all imperial inputs to metric internally before calculating. Store values in kg/cm.
 
@@ -54,9 +54,11 @@ After receiving answers, calculate and show for confirmation:
   - Lose weight: TDEE - 500
   - Maintain: TDEE
   - Gain muscle: TDEE + 300
+  - **Safety floor**: never set the daily limit below the user's BMR (the Mifflin-St Jeor value before the activity multiplier), and never below 1200 kcal for women / 1500 kcal for men. If `TDEE - 500` falls under the floor, use the floor instead and tell the user the deficit was reduced for safety.
 - **Protein** based on goal:
   - Lose / Gain: body_weight_kg x 2.0g (range x1.8-x2.2)
   - Maintain: body_weight_kg x 1.6g (range x1.4-x1.8)
+  - If the user is significantly overweight, base protein on goal weight (or a realistic target weight) rather than current body weight, so the number stays sensible.
 - **Fat** = daily_kcal x 0.25 / 9
 - **Carbs** = (daily_kcal - protein x 4 - fat x 9) / 4
 - **Fixed daily** = sum of kcal and macros from fixed items the user listed (0 if none)
@@ -181,11 +183,12 @@ Recognize these intents regardless of exact phrasing or language:
 Properties: Day (TITLE), Date (DATE), Calories (NUMBER), Protein_g (NUMBER), Fat_g (NUMBER), Carbs_g (NUMBER), Result (SELECT), Training (CHECKBOX)
 Page content: one table per meal, then a short end-of-day comment.
 
-Result logic:
-- Great = all macros within ±5% of target
-- Good = calories on target AND protein >= 90% of target
-- Over = calories > daily_kcal + 100
-- Under = protein < 80% of target
+Result logic (check in this order, first match wins):
+1. Over = calories > daily_kcal + 100
+2. Under = protein < 80% of target
+3. Great = calories within ±5% of daily_kcal AND protein, fat, and carbs each within ±5% of their target
+4. Good = calories within ±10% of daily_kcal AND protein >= 90% of target
+5. If none match, default to Good
 
 Always ask whether the user trained that day before saving.
 
